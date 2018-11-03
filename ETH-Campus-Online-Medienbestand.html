@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Jahr', 
+		 'Elektronische Zeitschriften',
+		 'E-Books'],
+		 ['2009',  11206, 47819],
+		 ['2010',  12979, 63386],
+		 ['2011',  13910, 85573],
+		 ['2012',  14635, 104808],
+		 ['2013',  15562, 120835],
+		 ['2014',  17025, 163909],
+         ['2015',  18158, 184537],
+         ['2016',  19628, 213748],
+         ['2017',  20087, 254386] 
+      ]);
+
+    var options = {
+      title : 'Bestand der Online Medien an der ETH Zürich',	
+      titlePosition: 'in',	  
+      vAxis: {title: '', format: 'decimal', 
+	          ticks: [0,50000,100000,150000,200000,250000] ,	         
+			  format: 'decimal'},
+      hAxis: {title: ''},
+      seriesType: 'bars',
+      legend: { position: 'bottom', alignment: 'end'},
+	  backgroundColor: '#f7eedc',
+	  gridlines: {
+            color: "#000000"
+      },
+	  width: '900',
+      height: '700',
+      baselineColor: '#000000',
+	  titleTextStyle: {
+         color: '#000000',
+		 fontName: 'Courier', // i.e. 'Times New Roman'
+         fontSize: '20', // 12, 18 whatever you want (don't specify px)
+         bold: 'true'     // true or false        
+      } ,  
+	
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+    </script>
+  </head>
+  <body  style="font-family: Arial;border: 0 none;">
+    <div id="chart_div" style="width: 1000px; height: 1000px;"></div>
+  </body>
+</html>
